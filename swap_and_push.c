@@ -6,7 +6,7 @@
 /*   By: apashkov <apashkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:23:49 by apashkov          #+#    #+#             */
-/*   Updated: 2023/10/27 13:11:50 by apashkov         ###   ########.fr       */
+/*   Updated: 2023/10/30 10:18:31 by apashkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ void	ss(t_list **stack_a, t_list **stack_b)
 
 void	pa_and_pb(t_list **stack_one, t_list **stack_two, int opt)
 {
-	
+	if (*stack_one == NULL)
+		return;
 	if (opt == 'a')
 		printf("pa\n");
 	else if (opt == 'b')

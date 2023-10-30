@@ -1,13 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apashkov <apashkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 19:54:23 by apashkov          #+#    #+#             */
-/*   Updated: 2023/10/30 11:14:49 by apashkov         ###   ########.fr       */
+/*   Created: 2023/10/30 10:46:35 by apashkov          #+#    #+#             */
+/*   Updated: 2023/10/30 11:12:00 by apashkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
+
+int	ft_lstsize(t_list *lst)
+{
+	t_list	*temp;
+	int		l;
+
+	l = 0;
+	temp = lst;
+	while (temp != NULL)
+	{
+		temp = temp->next;
+		l++;
+	}
+	return (l);
+}
+
