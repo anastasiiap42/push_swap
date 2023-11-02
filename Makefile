@@ -4,9 +4,16 @@ COMPILER := cc
 
 FLAGS := -Wall -Wextra -Werror
 
-SRCS := main.c\
+SRCS := ft_lstadd_back.c\
+ft_lstadd_front.c\
+ft_lstclear.c\
+ft_lstdelone.c\
+ft_lstlast.c\
+ft_lstnew.c\
+ft_lstsize.c\
+main.c\
 push_swap_utils.c\
-swap_and_push.c
+swap_push_rotate.c
 
 OBJS := $(SRCS:%.c=%.o)
 
@@ -15,7 +22,7 @@ all: $(NAME)
 %.o: %.c
 	$(COMPILER) $(FLAGS) -c $< -o $@
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) push_swap.h
 	@cd Libft && $(MAKE) --no-print-directory
 	$(COMPILER) $(FLAGS) -o $(NAME) $(OBJS) ./Libft/libft.a
 

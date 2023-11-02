@@ -6,11 +6,11 @@
 /*   By: apashkov <apashkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 11:08:49 by apashkov          #+#    #+#             */
-/*   Updated: 2023/10/30 11:12:30 by apashkov         ###   ########.fr       */
+/*   Updated: 2023/11/01 15:44:49 by apashkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 t_list	*ft_lstlast(t_list *lst)
 {

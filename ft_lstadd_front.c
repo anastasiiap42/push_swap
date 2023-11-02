@@ -6,11 +6,11 @@
 /*   By: apashkov <apashkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 10:44:50 by apashkov          #+#    #+#             */
-/*   Updated: 2023/10/30 10:45:29 by apashkov         ###   ########.fr       */
+/*   Updated: 2023/11/01 15:44:35 by apashkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {

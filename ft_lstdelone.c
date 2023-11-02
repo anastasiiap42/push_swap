@@ -6,11 +6,11 @@
 /*   By: apashkov <apashkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 11:10:34 by apashkov          #+#    #+#             */
-/*   Updated: 2023/10/30 14:26:27 by apashkov         ###   ########.fr       */
+/*   Updated: 2023/11/01 16:33:24 by apashkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 void	ft_lstdelone(t_list *lst, void (*del)(int))
 {
