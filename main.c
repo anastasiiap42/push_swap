@@ -6,11 +6,24 @@
 /*   By: apashkov <apashkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 11:05:59 by apashkov          #+#    #+#             */
-/*   Updated: 2023/11/02 18:34:09 by apashkov         ###   ########.fr       */
+/*   Updated: 2023/11/07 11:25:14 by apashkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	is_sorted(t_list *stack)
+{
+	if (stack == NULL)
+		return (1);
+	while (stack->next)
+	{
+		if (stack->input > stack->next->input)
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
+}
 
 void print_list(t_list *head)
 {
@@ -57,7 +70,8 @@ int	main(int argc, char **argv)
 	}
 	a_stack->next = NULL;
 	a_stack = temp;
-
+	if (is_sorted(a_stack) == 1 && ft_lstsize(a_stack) == 3)
+		three_sort(&a_stack);
 	/* b_stack = (t_list *)malloc(sizeof(t_list));
 	b_stack->input = 7;
 	b_stack->next = (t_list *)malloc(sizeof(t_list));

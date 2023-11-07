@@ -13,7 +13,8 @@ ft_lstnew.c\
 ft_lstsize.c\
 main.c\
 push_swap_utils.c\
-swap_push_rotate.c
+swap_push_rotate.c\
+easy_sort.c
 
 OBJS := $(SRCS:%.c=%.o)
 

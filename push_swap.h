@@ -6,7 +6,7 @@
 /*   By: apashkov <apashkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 19:49:12 by apashkov          #+#    #+#             */
-/*   Updated: 2023/11/02 13:44:11 by apashkov         ###   ########.fr       */
+/*   Updated: 2023/11/07 11:18:44 by apashkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "./Libft/libft.h"
 # include <stdlib.h>
 # include <stdio.h>
+# include <limits.h>
 
 typedef struct	s_list
 {
@@ -38,6 +39,7 @@ void	rra_and_rrb(t_list **stack, int opt);
 void	rrr(t_list **a_stack, t_list **b_stack);
 void	sa_and_sb(t_list **stack_a, int opt);
 void	ss(t_list **stack_a, t_list **stack_b);
+void	three_sort(t_list **stack_a);
 int		ft_lstsize(t_list *lst);
 
 #endif
