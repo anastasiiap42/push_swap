@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_and_push.c                                    :+:      :+:    :+:   */
+/*   swap_push_rotate.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apashkov <apashkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:23:49 by apashkov          #+#    #+#             */
-/*   Updated: 2023/11/01 18:29:22 by apashkov         ###   ########.fr       */
+/*   Updated: 2023/11/08 19:48:57 by apashkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ void	ss(t_list **stack_a, t_list **stack_b)
 void	pa_and_pb(t_list **stack_one, t_list **stack_two, int opt)
 {
 	t_list	*temp;
+
+	if (*stack_two == NULL)
+		return ;
 	temp = *stack_two;
 	*stack_two = (*stack_two)->next;
 	ft_lstadd_front(stack_one, temp);
