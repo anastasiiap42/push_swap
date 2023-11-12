@@ -6,7 +6,7 @@
 /*   By: apashkov <apashkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:23:49 by apashkov          #+#    #+#             */
-/*   Updated: 2023/11/08 19:48:57 by apashkov         ###   ########.fr       */
+/*   Updated: 2023/11/12 17:08:22 by apashkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	pa_and_pb(t_list **stack_one, t_list **stack_two, int opt)
 		return ;
 	temp = *stack_two;
 	*stack_two = (*stack_two)->next;
+	temp->next = NULL;
 	ft_lstadd_front(stack_one, temp);
 	if (*stack_one == NULL)
 		return;

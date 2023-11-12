@@ -6,7 +6,7 @@
 /*   By: apashkov <apashkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 19:49:12 by apashkov          #+#    #+#             */
-/*   Updated: 2023/11/07 11:18:44 by apashkov         ###   ########.fr       */
+/*   Updated: 2023/11/12 18:01:44 by apashkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct	s_list
 {
 	int				input;
 	int				index;
+	int				price;
 	struct s_list	*next;
 }		t_list;
 

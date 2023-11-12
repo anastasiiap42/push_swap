@@ -6,7 +6,7 @@
 /*   By: apashkov <apashkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 11:05:59 by apashkov          #+#    #+#             */
-/*   Updated: 2023/11/08 19:57:32 by apashkov         ###   ########.fr       */
+/*   Updated: 2023/11/12 18:12:40 by apashkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,17 +72,25 @@ int	main(int argc, char **argv)
 	a_stack->next = NULL;
 	a_stack = temp;
 	len = ft_lstsize(a_stack);
-	/* if (is_sorted(a_stack) == 1)
+	if (is_sorted(a_stack) == 1)
 	{
 		if (len == 5)
-			write(1, "five_sort", 9);
+			write(1, "five_sort\n", 10);
 		else
 		{
-			while (len-- > 3)
+			while (len > 3)
+			{
 				pa_and_pb(&b_stack, &a_stack, 'b');
+				len--;
+			}
 		}
 		three_sort(&a_stack);
-	} */
+	}
+	while(*b_stack)
+	{
+		set_nodes(*a, *b);
+		sort_nodes(a, b);
+	}
 	/* b_stack = (t_list *)malloc(sizeof(t_list));
 	b_stack->input = 7;
 	b_stack->next = (t_list *)malloc(sizeof(t_list));
@@ -92,7 +100,6 @@ int	main(int argc, char **argv)
 	b_stack->next->next->next = NULL; */
 
 	//sa_and_sb(&a_stack, 'a');
-	pa_and_pb(&b_stack, &a_stack, 'b');
 	//rr(&a_stack, &b_stack);
 	//rrr(&a_stack, &b_stack);
 
