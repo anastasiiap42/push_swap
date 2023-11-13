@@ -6,7 +6,7 @@
 /*   By: apashkov <apashkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 19:54:23 by apashkov          #+#    #+#             */
-/*   Updated: 2023/11/01 19:28:12 by apashkov         ###   ########.fr       */
+/*   Updated: 2023/11/13 19:22:53 by apashkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,20 @@ void	rrr(t_list **a_stack, t_list **b_stack)
 	rra_and_rrb(a_stack, 'c');
 	rra_and_rrb(b_stack, 'c');
 	write(1,"rrr\n", 4);
+}
+
+void	free_a_stack(t_list **stack)
+{
+	t_list	*temp;
+
+	if (stack == NULL)
+		return;
+	temp = *stack;
+	while (temp)
+	{
+		temp = temp->next;
+		free(*stack);
+		*stack = temp;
+	}
+	*stack = NULL;
 }

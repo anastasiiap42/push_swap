@@ -6,7 +6,7 @@
 /*   By: apashkov <apashkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 10:37:03 by apashkov          #+#    #+#             */
-/*   Updated: 2023/11/07 11:35:47 by apashkov         ###   ########.fr       */
+/*   Updated: 2023/11/13 18:41:26 by apashkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,3 +61,8 @@ void	three_sort(t_list **stack_a)
 	if ((*stack_a)->input > (*stack_a)->next->input)
 		sa_and_sb(stack_a, 'a');
 }
+
+/* void	five_sort(t_list **a_stack, t_list **b_stack)
+{
+	
+} */

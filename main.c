@@ -6,7 +6,7 @@
 /*   By: apashkov <apashkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 11:05:59 by apashkov          #+#    #+#             */
-/*   Updated: 2023/11/12 18:12:40 by apashkov         ###   ########.fr       */
+/*   Updated: 2023/11/13 19:23:16 by apashkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	is_sorted(t_list *stack)
 	return (0);
 }
 
+//Just for testing purposes
 void print_list(t_list *head)
 {
 	t_list *current;
@@ -32,31 +33,21 @@ void print_list(t_list *head)
 	current = head;
     while (current != NULL)
 	{
-        printf("%d\n", current->input);
+        printf("%d\n", current->index);
         current = current->next;
     }
 }
-int	main(int argc, char **argv)
-{
-	int	i;
-	t_list	*a_stack;
-	t_list	*b_stack;
-	t_list	*temp;
-	int	len;
 
-	b_stack = NULL;
-	i = 1;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		return (0);
-	else if (argc == 2)
-	{
-		argv = ft_split(argv[1], ' ');
-		i = 0;
-	}
-	a_stack = (t_list *)malloc(sizeof(t_list));
-	if (!a_stack)
-		return (0);
+void	fill_stack_a(t_list *a_stack, char **argv, int argc)
+{
+	t_list	*temp;
+	int		i;
+
 	temp = a_stack;
+	if (argc == 2)
+		i = 0;
+	else
+		i = 1;
 	while (argv[i])
 	{
 		a_stack->input = ft_atoi(argv[i]);
@@ -64,33 +55,45 @@ int	main(int argc, char **argv)
 		{
 			a_stack->next = (t_list *)malloc(sizeof(t_list));
 			if (a_stack->next == NULL)
-				return (0);
+				return;
 			a_stack = a_stack->next;
 		}
 		i++;
 	}
 	a_stack->next = NULL;
 	a_stack = temp;
-	len = ft_lstsize(a_stack);
-	if (is_sorted(a_stack) == 1)
-	{
-		if (len == 5)
-			write(1, "five_sort\n", 10);
-		else
-		{
-			while (len > 3)
-			{
-				pa_and_pb(&b_stack, &a_stack, 'b');
-				len--;
-			}
-		}
+}
+
+/* void	the_algorithm(t_list **a_stack, t_list **b_stack)
+{
+	if (ft_lstsize(a_stack) == 2)
+		sa_and_sb(&a_stack, 'a');
+	else if (ft_lstsize(a_stack) == 3)
 		three_sort(&a_stack);
-	}
-	while(*b_stack)
+	else if (ft_lstsize(a_stack) == 5)
+	else
+		radix_sort()
+} */
+
+int	main(int argc, char **argv)
+{
+	t_list	*a_stack;
+	t_list	*b_stack;
+
+	b_stack = NULL;
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
+		return (0);
+	else if (argc == 2)
+		argv = ft_split(argv[1], ' ');
+	a_stack = (t_list *)malloc(sizeof(t_list));
+	if (!a_stack)
+		return (0);
+	fill_stack_a(a_stack, argv, argc);
+	set_indexes(&a_stack);
+	/* if (is_sorted(a_stack) == 1)
 	{
-		set_nodes(*a, *b);
-		sort_nodes(a, b);
-	}
+		sorting_algorithm(&a_stack, &b_stack);
+	} */
 	/* b_stack = (t_list *)malloc(sizeof(t_list));
 	b_stack->input = 7;
 	b_stack->next = (t_list *)malloc(sizeof(t_list));
@@ -105,6 +108,7 @@ int	main(int argc, char **argv)
 
 	printf("Stack A:\n");
 	print_list(a_stack);
-	printf("Stack B:\n");
+	/* printf("Stack B:\n");
 	print_list(b_stack);
+	free_a_stack(&a_stack); */
 }

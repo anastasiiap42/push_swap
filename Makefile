@@ -13,6 +13,7 @@ ft_lstnew.c\
 ft_lstsize.c\
 main.c\
 push_swap_utils.c\
+push_swap.c\
 swap_push_rotate.c\
 easy_sort.c
 
