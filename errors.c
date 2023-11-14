@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apashkov <apashkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 10:46:35 by apashkov          #+#    #+#             */
-/*   Updated: 2023/11/14 10:50:39 by apashkov         ###   ########.fr       */
+/*   Created: 2023/11/14 14:37:24 by apashkov          #+#    #+#             */
+/*   Updated: 2023/11/14 19:09:14 by apashkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_lstsize(t_list *lst)
+int	errors(char **argv, t_list **a_stack)
 {
-	t_list	*temp;
-	int		l;
+	int	i;
+	long int nb;
 
-	l = 0;
-	temp = lst;
-	while (temp != NULL)
+	i = 0;
+	while (argv[i])
 	{
-		temp = temp->next;
-		l++;
+		nb = ft_atoi(argv[i]);
+		if (nb > INT_MAX || nb < INT_MIN)
+		{
+			//free_array(argv);
+			return (write(2, "Error\n", 6), free_a_stack(a_stack), 1);
+		}
+		i++;
 	}
-	return (l);
+	return (0);
 }
-

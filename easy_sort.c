@@ -6,11 +6,12 @@
 /*   By: apashkov <apashkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 10:37:03 by apashkov          #+#    #+#             */
-/*   Updated: 2023/11/13 18:41:26 by apashkov         ###   ########.fr       */
+/*   Updated: 2023/11/14 14:11:52 by apashkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 t_list	*the_highest(t_list *stack)
 {
@@ -20,7 +21,7 @@ t_list	*the_highest(t_list *stack)
 	res = INT_MIN;
 	if (stack == NULL)
 		return (NULL);
-	while (stack->next)
+	while (stack)
 	{
 		if (stack->input > res)
 		{
@@ -32,7 +33,7 @@ t_list	*the_highest(t_list *stack)
 	return (the_node);
 }
 
-t_list	*the_smallest(t_list *stack)
+static t_list	*the_smallest(t_list *stack)
 {
 	int	res;
 	t_list	*the_node;
@@ -40,11 +41,11 @@ t_list	*the_smallest(t_list *stack)
 	res = INT_MAX;
 	if (stack == NULL)
 		return (NULL);
-	while (stack->next)
+	while (stack)
 	{
-		if (stack->input < res)
+		if (stack->index < res)
 		{
-			res = stack->input;
+			res = stack->index;
 			the_node = stack;
 		}
 		stack = stack->next;
@@ -62,7 +63,33 @@ void	three_sort(t_list **stack_a)
 		sa_and_sb(stack_a, 'a');
 }
 
-/* void	five_sort(t_list **a_stack, t_list **b_stack)
+void	four_sort(t_list **stack_a, t_list **stack_b)
 {
-	
-} */
+	if ((*stack_a)->next == the_smallest(*stack_a))
+		ra_and_rb(stack_a, 'a');
+	else if (!(*stack_a == the_smallest(*stack_a)))
+	{
+		while (*stack_a != the_smallest(*stack_a))
+			rra_and_rrb(stack_a, 'a');
+	}
+	pa_and_pb(stack_b, stack_a, 'b');
+	three_sort(stack_a);
+	pa_and_pb(stack_a, stack_b, 'a');
+}
+
+void	five_sort(t_list **stack_a, t_list **stack_b)
+{
+	if ((*stack_a)->next == the_smallest(*stack_a) || (*stack_a)->next->next == the_smallest(*stack_a))
+	{
+		while (*stack_a != the_smallest(*stack_a))
+			ra_and_rb(stack_a, 'a');
+	}
+	else if (*stack_a != the_smallest(*stack_a))
+	{
+		while (*stack_a != the_smallest(*stack_a))
+			rra_and_rrb(stack_a, 'a');
+	}
+	pa_and_pb(stack_b, stack_a, 'b');
+	four_sort(stack_a, stack_b);
+	pa_and_pb(stack_a, stack_b, 'a');
+}

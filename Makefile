@@ -15,7 +15,8 @@ main.c\
 push_swap_utils.c\
 push_swap.c\
 swap_push_rotate.c\
-easy_sort.c
+easy_sort.c\
+errors.c
 
 OBJS := $(SRCS:%.c=%.o)
 
