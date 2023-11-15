@@ -6,7 +6,7 @@
 /*   By: apashkov <apashkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 19:54:23 by apashkov          #+#    #+#             */
-/*   Updated: 2023/11/13 19:22:53 by apashkov         ###   ########.fr       */
+/*   Updated: 2023/11/15 13:37:29 by apashkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,29 @@ void	free_a_stack(t_list **stack)
 		*stack = temp;
 	}
 	*stack = NULL;
+}
+
+void	free_all(t_list **stack, char **argv, int argc)
+{
+	if (argc == 2)
+		free_array(argv);
+	if (!(*stack))
+		return ;
+	free_a_stack(stack);
+}
+
+int	overflow(char **argv)
+{
+	int	i;
+	long int nb;
+
+	i = 0;
+	while (argv[i])
+	{
+		nb = ft_atoi(argv[i]);
+		if (nb > INT_MAX || nb < INT_MIN)
+			return (1);
+		i++;
+	}
+	return (0);
 }

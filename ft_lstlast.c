@@ -6,7 +6,7 @@
 /*   By: apashkov <apashkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 11:08:49 by apashkov          #+#    #+#             */
-/*   Updated: 2023/11/01 15:44:49 by apashkov         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:31:28 by apashkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,3 @@ t_list	*ft_lstlast(t_list *lst)
 	}
 	return (temp);
 }
-

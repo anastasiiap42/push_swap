@@ -6,7 +6,7 @@
 /*   By: apashkov <apashkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 19:49:12 by apashkov          #+#    #+#             */
-/*   Updated: 2023/11/14 18:30:41 by apashkov         ###   ########.fr       */
+/*   Updated: 2023/11/15 13:37:39 by apashkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 # include <stdio.h>
 # include <limits.h>
 
-typedef struct	s_list
+typedef struct s_list
 {
 	int				input;
 	int				index;
 	struct s_list	*next;
 }		t_list;
 
-int		errors(char **argv, t_list **a_stack);
+int		overflow(char **argv);
 void	free_a_stack(t_list **stack);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
@@ -48,5 +48,6 @@ void	three_sort(t_list **stack_a);
 void	four_sort(t_list **stack_a, t_list **stack_b);
 t_list	*find_next(t_list **stack);
 void	five_sort(t_list **stack_a, t_list **stack_b);
+void	free_all(t_list **stack, char **argv, int argc);
 
 #endif

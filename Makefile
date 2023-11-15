@@ -2,7 +2,7 @@ NAME := push_swap
 
 COMPILER := cc
 
-FLAGS := -Wall -Wextra -Werror
+FLAGS := -Wall -Wextra -Werror -g
 
 SRCS := ft_lstadd_back.c\
 ft_lstadd_front.c\
@@ -15,8 +15,7 @@ main.c\
 push_swap_utils.c\
 push_swap.c\
 swap_push_rotate.c\
-easy_sort.c\
-errors.c
+easy_sort.c
 
 OBJS := $(SRCS:%.c=%.o)
 
