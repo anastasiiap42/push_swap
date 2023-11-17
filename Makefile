@@ -2,7 +2,7 @@ NAME := push_swap
 
 COMPILER := cc
 
-FLAGS := -Wall -Wextra -Werror -g
+FLAGS := -Wall -Wextra -Werror
 
 SRCS := ft_lstadd_back.c\
 ft_lstadd_front.c\

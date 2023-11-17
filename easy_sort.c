@@ -6,18 +6,17 @@
 /*   By: apashkov <apashkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 10:37:03 by apashkov          #+#    #+#             */
-/*   Updated: 2023/11/15 12:19:00 by apashkov         ###   ########.fr       */
+/*   Updated: 2023/11/15 16:02:04 by apashkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-t_list	*the_highest(t_list *stack)
+static t_list	*the_highest(t_list *stack)
 {
-	int	res;
+	int		res;
 	t_list	*the_node;
-	
+
 	res = INT_MIN;
 	if (stack == NULL)
 		return (NULL);
@@ -35,7 +34,7 @@ t_list	*the_highest(t_list *stack)
 
 static t_list	*the_smallest(t_list *stack)
 {
-	int	res;
+	int		res;
 	t_list	*the_node;
 
 	res = INT_MAX;
@@ -79,7 +78,8 @@ void	four_sort(t_list **stack_a, t_list **stack_b)
 
 void	five_sort(t_list **stack_a, t_list **stack_b)
 {
-	if ((*stack_a)->next == the_smallest(*stack_a) || (*stack_a)->next->next == the_smallest(*stack_a))
+	if ((*stack_a)->next == the_smallest(*stack_a)
+		|| (*stack_a)->next->next == the_smallest(*stack_a))
 	{
 		while (*stack_a != the_smallest(*stack_a))
 			ra_and_rb(stack_a, 'a');

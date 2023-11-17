@@ -6,11 +6,18 @@
 /*   By: apashkov <apashkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 10:36:59 by apashkov          #+#    #+#             */
-/*   Updated: 2023/11/15 12:34:08 by apashkov         ###   ########.fr       */
+/*   Updated: 2023/11/15 15:43:29 by apashkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	stack_init(t_list *a_stack)
+{
+	a_stack->next = NULL;
+	a_stack->input = 0;
+	a_stack->index = 0;
+}
 
 t_list	*find_next(t_list **stack)
 {
@@ -44,7 +51,7 @@ void	set_indexes(t_list **stack)
 	}
 }
 
-void	radix_sort(t_list **a_stack, t_list **b_stack)
+static void	radix_sort(t_list **a_stack, t_list **b_stack)
 {
 	int				i;
 	t_list			*temp;
@@ -66,4 +73,16 @@ void	radix_sort(t_list **a_stack, t_list **b_stack)
 			pa_and_pb(a_stack, b_stack, 'a');
 		i++;
 	}
+}
+
+void	sort_stack(t_list **a_stack, t_list **b_stack)
+{
+	if (ft_lstsize(*a_stack) == 3)
+		three_sort(a_stack);
+	else if (ft_lstsize(*a_stack) == 4)
+		four_sort(a_stack, b_stack);
+	else if (ft_lstsize(*a_stack) == 5)
+		five_sort(a_stack, b_stack);
+	else
+		radix_sort(a_stack, b_stack);
 }

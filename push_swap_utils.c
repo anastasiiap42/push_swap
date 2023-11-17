@@ -6,7 +6,7 @@
 /*   By: apashkov <apashkov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 19:54:23 by apashkov          #+#    #+#             */
-/*   Updated: 2023/11/15 13:37:29 by apashkov         ###   ########.fr       */
+/*   Updated: 2023/11/15 15:17:45 by apashkov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@ void	rra_and_rrb(t_list **stack, int opt)
 	finish->next = NULL;
 	*stack = temp;
 	if (opt == 'a')
-		write(1,"rra\n", 4);
+		write(1, "rra\n", 4);
 	else if (opt == 'b')
-		write(1,"rrb\n", 4);
+		write(1, "rrb\n", 4);
 }
 
 void	rrr(t_list **a_stack, t_list **b_stack)
 {
 	rra_and_rrb(a_stack, 'c');
 	rra_and_rrb(b_stack, 'c');
-	write(1,"rrr\n", 4);
+	write(1, "rrr\n", 4);
 }
 
 void	free_a_stack(t_list **stack)
@@ -45,7 +45,7 @@ void	free_a_stack(t_list **stack)
 	t_list	*temp;
 
 	if (stack == NULL)
-		return;
+		return ;
 	temp = *stack;
 	while (temp)
 	{
@@ -67,8 +67,8 @@ void	free_all(t_list **stack, char **argv, int argc)
 
 int	overflow(char **argv)
 {
-	int	i;
-	long int nb;
+	int			i;
+	long int	nb;
 
 	i = 0;
 	while (argv[i])
